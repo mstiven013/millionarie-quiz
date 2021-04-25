@@ -1,0 +1,74 @@
+{
+	"categoria_uno": [
+		{
+			"pregunta": "¿Qué es Gobierno de Información?",
+			"opciones": [
+				"Lo mismo que gestión de datos",
+				"Lo mismo que calidad de datos",
+				"El ejercicio de la autoridad y control sobre la gestión de los datos",
+				"Todas las anteriores"
+			],
+			"respuesta": 3
+		},
+		{
+			"pregunta": "¿Cuál es la responsabilidad del equipo de Gobierno de Información?",
+			"opciones": [
+				"Definir los datos que se deben migrar para la salida en vivo de una aplicativo",
+				"Definir con las áreas de negocio y técnica los lineamientos para la gestión de datos",
+				"Solucionar todos los problemas de calidad de los datos",
+				"Ninguna de las anteriores"
+			],
+			"respuesta": 2
+		},
+		{
+			"pregunta": "Un dato maestro es",
+			"opciones": [
+				"Los “adjetivos” de las entidades o los datos que pertenecen a una Entidad.",
+				"La representación a un objeto del mundo real y lo define de una forma que lo entendamos. No guarda información Transaccional ni Histórica, esto quiere decir que no cambia a causa de una transacción comercial.",
+				"La colección de datos usados para soportar las actividades diarias (eventos)",
+				"Todas las anteriores"
+			],
+			"respuesta": 2
+		},
+		{
+			"pregunta": "Una función del administrador de datos de negocio es",
+			"opciones": [
+				"Identificar y ayudar a resolver problemas de datos",
+				"Corregir inconsistencias entendiendo el impacto en los procesos",
+				"Proponer definiciones de datos de negocio, reglas de calidad y su uso adecuado",
+				"Todas las anteriores"
+			],
+			"respuesta": 4
+		},
+		{
+			"pregunta": "Cuales son las tres categorías que podemos encontrar en el catálogo de información de una maestra",
+			"opciones": [
+				"Las fuentes de datos relacionados al dato Maestro, Los Roles y responsabilidades, y los atributos seleccionados que conforman el Dato Maestro",
+				"El modelo conceptual, análisis de Impacto y los Roles y responsabilidades de la maestra",
+				"Las fuentes de datos relacionados al dato Maestro, Linaje de datos y el modelo lógico",
+				"Ninguna de las anteriores"
+			],
+			"respuesta": 1
+		},
+		{
+			"pregunta": "Para que sirve el tablero de Calidad de datos",
+			"opciones": [
+				"Monitorear el nivel de madurez",
+				"Consultar t activos de información",
+				"Monitorear las inconsistencias de tus datos maestros",
+				"Hacer seguimiento a los avances de gobierno."
+			],
+			"respuesta": 3
+		},
+		{
+			"pregunta": "Una función del administrador de datos de TI es:",
+			"opciones": [
+				"Configurar reglas de calidad de datos técnicos y de negocio, y emitir resultados periódicos",
+				"Atender las solicitudes de los proyectos y resoluciones para validar los impactos que estos puedan tener en la arquitectura de datos de la organización",
+				"Realizar seguimiento a la actualización de los modelos de arquitectura conceptual, lógico y físico de la compañía.",
+				"Todas las anteriores"
+			],
+			"respuesta": 4
+		}
+	]
+}

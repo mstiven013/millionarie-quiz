@@ -1,0 +1,294 @@
+@import 'mixins';
+@import 'vars';
+@import 'animations';
+
+@import 'login';
+@import 'categories';
+@import 'scores';
+@import 'broadcaster';
+@import 'actions';
+
+* {
+	@include box-sizing;
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	height: 100vh;
+	width: 100vw;
+}
+
+body {
+	background-color: $yellow;
+	overflow: hidden;
+	font-family: $font-family;
+}
+
+.alert__lose {
+	background: rgb(2,0,36);
+	background: radial-gradient(circle, rgba(2,0,36,0) 0%, rgba(255,0,0,0.45) 100%);
+	bottom: 0;
+	height: 100vh;
+	left: 0;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
+
+	&.active {
+		// Animation
+		animation-name: alert-animation;
+		animation-duration: .5s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	    animation-timing-function: linear;
+	    z-index: 1000;
+	}
+}
+
+.game__container {
+	align-items: center;
+	background-image: url('../img/game-bg.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	height: 100vh;
+	justify-content: center;
+	margin: auto;
+	overflow-y: auto;
+	padding: 0 20px;
+	position: relative;
+	width: 1200px;
+}
+
+.game__scene {
+	left: 50%;
+	max-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	@include common-transition;
+	max-width: 100%;
+	width: 100%;
+
+	&.active {
+		z-index: 1;
+		visibility: visible;
+		opacity: 1;
+		margin-top: 0;
+	}
+
+	&:not(.active) {
+		opacity: 0;
+		margin-top: -5px;
+		visibility: hidden;
+		z-index: -1;
+	}
+
+	&#game__scene-categories {
+		max-width: $max-width;
+		width: 100%;
+	}
+
+	&#game__scene-playing {
+		align-items: flex-end;
+		display: flex;
+		flex-flow: row wrap;
+		height: 90%;
+		max-width: 1200px;
+		justify-content: space-between;
+		width: 100%;
+	}
+}
+
+.common__button {
+	background-color: $yellow;
+	border-radius: $border-radius;
+	border: none;
+	color: #000;
+	display: inline-block;
+	font-family: $font-family;
+	font-size: 16px;
+	font-weight: 800;
+	height: 44px;
+	margin-top: 5px;
+	outline: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-transform: uppercase;
+	@include common-transition;
+	width: 100%;
+
+	&:not([disabled]) {
+		cursor: pointer;
+	}
+
+	&[disabled] {
+		cursor: not-allowed;
+		opacity: 0.7;
+	}
+
+	&:hover, &:active, &:focus {
+		background-color: $blue-light;
+	}
+}
+
+// Preguntas
+.game__question {
+	align-items: center;
+	background-color: $yellow-dark;
+	border-radius: 10px;
+	border: 10px solid $brown;
+	color: $white;
+	display: flex;
+	flex-flow: column wrap;
+	font-size: 16px;
+	font-weight: bold;
+	height: 90px;
+	justify-content: center;
+	line-height: 130%;
+	margin-bottom: 5px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.game__wrap {
+	position: relative;
+	width: calc(80% - 200px);
+}
+
+.game__options {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	&-item {
+		align-items: center;
+		background-color: $cream;
+		border-radius: 5px;
+		border: 5px solid $yellow-dark;
+		color: $text-color;
+		cursor: pointer;
+		display: flex;
+		flex-flow: column wrap;
+		font-size: 14px;
+		font-weight: bold;
+		justify-content: center;
+		min-height: 70px;
+		line-height: 120%;
+		margin: 5px;
+		outline: 0;
+		padding: 15px;
+		text-align: center;
+		width: calc(50% - 5px);
+
+		&.active {
+			background-color: $yellow-medium;
+		}
+
+		&:not([disabled]) {
+			cursor: pointer;
+		}
+
+		&[disabled] {
+			cursor: not-allowed;
+			opacity: 0.8;
+		}
+
+		&:nth-child(1n + 1) {
+			margin-left: 0;
+		}
+
+		&:nth-child(2n + 2) {
+			margin-right: 0;
+		}
+
+		&:nth-child(3), &:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Call action
+.call__friend {
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: scale(0);
+	@include common-transition;
+
+	&.show {
+		transform: scale(1);
+	}
+
+	&-icon {
+		background-image: url('../img/call.png');
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 90px;
+		position: relative;
+		width: 90px;
+
+		&.responded {
+			background-position: bottom center;
+		}
+
+
+		&:not(.responded):before {
+		    background-color: transparent;
+		    @include box-sizing;
+		    content: '';
+		    border-radius: 50%;
+		    border: 15px solid $white;
+		    height: calc(100% + 30px);
+		    left: -15px;
+		    position: absolute;
+		    top: -15px;
+		    width: calc(100% + 30px);
+		    z-index: -1;
+
+		    // Animation
+			animation-name: waves-animation;
+			animation-duration: 1.5s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+		    animation-timing-function: ease-in-out;
+		}
+	}
+
+	&-response {
+		color: $brown;
+		font-weight: bold;
+		text-align: center;
+	}
+}
+
+.game__lose {
+	margin: auto;
+	text-align: center;
+	max-width: $max-width;
+
+	.game__lose-message {
+		font-size: 25px;
+		font-weight: bold;
+		line-height: 130%;
+		margin-bottom: 20px;
+
+		span {
+			display: block;
+			font-size: 40px;
+			font-weight: bold;
+			margin-top: 5px;
+		}
+	}
+}

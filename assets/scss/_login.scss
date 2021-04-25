@@ -1,0 +1,59 @@
+.game__title {
+	align-items: center;
+	background-color: $yellow;
+	border-radius: 10px;
+	border: 20px solid $yellow-dark;
+	color: $text-color;
+	display: flex;
+	flex-flow: column wrap;
+	font-size: 30px;
+	font-weight: 900;
+	height: 150px;
+	justify-content: center;
+	letter-spacing: 1px;
+	line-height: 100%;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	max-width: $max-width;
+	width: 100%;
+}
+
+.login__form {
+	align-items: center;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	max-width: $max-width;
+	width: 100%;
+
+	&-field {
+		background-color: $white;
+		border-radius: $border-radius;
+		border: 1px solid $gray;
+		font-family: $font-family;
+		font-size: 16px;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		outline: 0;
+		padding: 10px 20px;
+		text-align: center;
+		@include common-transition;
+		width: 100%;
+
+		&:focus {
+			box-shadow: 0 0 0px 3px $blue-light;
+		}
+
+		&#user__email {
+			margin-bottom: 15px;
+		}
+	}
+}

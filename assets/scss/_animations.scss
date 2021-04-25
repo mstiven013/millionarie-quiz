@@ -1,0 +1,31 @@
+@keyframes waves-animation {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(2.5);
+	}
+}
+
+@keyframes scores-animation {
+	0% {
+		background-color: transparent;
+	}
+
+	100% {
+		background-color: $orange;
+	}
+}
+
+@keyframes alert-animation {
+	0% {
+		opacity: 1;
+	}
+
+	100% { 
+		opacity: 0.2;
+	}
+}

@@ -1,0 +1,105 @@
+.game__actions {
+	align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	font-family: $font-family;
+	justify-content: flex-end;
+	width: 100%;
+
+	&-item {
+		align-items: center;
+		background-color: $brown-dark;
+		border-radius: 50%;
+		border: 7px solid $brown-medium;
+		color: $white;
+		display: flex;
+		flex-flow: column wrap;
+		font-size: 20px;
+		font-weight: bold;
+		justify-content: center;
+		height: 65px;
+		margin-bottom: 10px;
+		margin-left: 5px;
+		margin-right: 5px;
+		outline: 0;
+		position: relative;
+		width: 65px;
+		z-index: 100;
+
+		&:before {
+			background-image: url('../img/disabled.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			content: '';
+			height: 70%;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(0);
+			@include common-transition;
+			width: 70%;
+		}
+
+		&[disabled] {
+			cursor: not-allowed;
+			opacity: 0.8;
+
+			&:before {
+				transform: translate(-50%, -50%) scale(1);
+			}
+		}
+
+		&:not([disabled]) {
+			cursor: pointer;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&#game__actions-timer {
+			cursor: initial;
+		}
+
+		&#game__actions-timer.waves__effect:before {
+		    background-color: transparent;
+		    @include box-sizing;
+		    content: '';
+		    border-radius: 50%;
+		    border: 8px solid $white;
+		    height: calc(100% + 30px);
+		    left: -15px;
+		    position: absolute;
+		    top: -15px;
+		    width: calc(100% + 30px);
+		    z-index: -1;
+
+		    // Animation
+			animation-name: waves-animation;
+			animation-duration: 1.5s;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+		    animation-timing-function: ease-in-out;
+		}
+
+		&#game__actions-audience {
+			background-image: url('../img/audience.png');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 90%;
+		}
+		&#game__actions-call {
+			background-image: url('../img/phone.png');
+			background-position: center left 40%;
+			background-repeat: no-repeat;
+			background-size: 70%;
+		}
+
+
+		&#game__actions-computer {
+			font-size: 16px;
+		}
+	}
+
+}

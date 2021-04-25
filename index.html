@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Millionarie Quiz</title>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+	<div class="alert__lose" id="alert__lose"></div>
+
+	<div class="game__container">
+
+		<div class="game__scene active" id="game__scene-login">
+			<div class="game__title">Millionarie Quiz</div>
+
+			<form class="login__form" id="login__form">
+				<input type="text" name="user__name" id="user__name" class="login__form-field" placeholder="Escribe tu nombre completo...">
+				<input type="email" name="user__email" id="user__email" class="login__form-field" placeholder="Escribe tu correo electrónico...">
+				<input type="submit" class="login__form-button common__button" id="login__button" disabled value="Jugar ahora">
+			</form>
+		</div>
+
+		<div class="game__scene" id="game__scene-categories">
+			<div class="select__category">
+				<div class="select__category-title">Selecciona una categoría</div>
+				<div class="select__arrows">
+					<button class="select__arrows-prev" id="select__category-prev" disabled><</button>
+					<button class="select__arrows-next" id="select__category-next">></button>
+				</div>
+				<ul class="select__category-list">
+					<li class="select__category-item active" data-category_name="categoria_uno">Categoría uno</li>
+				</ul>
+			</div>
+
+			<button class="common__button" id="play__now">Jugar ahora</button>
+		</div>
+
+		<div class="game__scene" id="game__scene-playing">
+			
+			<div class="scores__sidebar">
+				<div class="scores__account">
+					<p class="scores__account-title">Account</p>
+					<p class="scores__account-count" id="scores__account-count">$0</p>
+				</div>
+
+				<div class="scores__list" id="scores__list"></div>
+			</div>
+
+			<div class="game__wrap">
+
+				<div class="call__friend" id="call__friend">
+					<div class="call__friend-icon" id="call__friend-icon"></div>
+					<div class="call__friend-response" id="call__friend-response"></div>
+				</div>
+
+				<div class="game__actions">
+					<button class="game__actions-item" id="game__actions-timer">30</button>
+					<button class="game__actions-item" id="game__actions-audience"></button>
+					<button class="game__actions-item" id="game__actions-call"></button>
+					<button class="game__actions-item" id="game__actions-computer">50-50</button>
+				</div>
+				
+				<div class="game__question" id="game__question"></div>
+				<div class="game__options">
+					<button class="game__options-item" id="game__options-item-A"></button>
+					<button class="game__options-item" id="game__options-item-B"></button>
+					<button class="game__options-item" id="game__options-item-C"></button>
+					<button class="game__options-item" id="game__options-item-D"></button>
+				</div>
+
+			</div>
+
+			<div class="broadcaster__wrap">
+				<div class="broadcaster__messages" id="broadcaster__messages-container">
+					<p id="broadcaster__messages"></p>
+					<div class="hidden" id="broadcaster__messages-button">
+						<button id="broadcaster__messages-yes">Sí</button>
+						<button id="broadcaster__messages-no">No</button>
+					</div>
+				</div>
+
+				<div class="broadcaster__person" id="broadcaster__person"></div>
+			</div>
+
+		</div>
+
+		<div class="game__scene" id="game__scene-lose">
+			<div class="game__title">Millionarie Quiz</div>
+			<div class="game__lose">
+				<div class="game__lose-message">Tuviste una puntucación de <span id="game__lose-score">$100</span></div>
+				<button class="common__button play__again">Jugar de nuevo</button>
+			</div>
+		</div>
+		
+	</div>
+
+	<script src="assets/js/scenes.js"></script>
+	<script src="assets/js/categories.js"></script>
+	<script src="assets/js/broadcaster.js"></script>
+	<script src="assets/js/actions.js"></script>
+	<script src="assets/js/audience.js"></script>
+	<script src="assets/js/call.js"></script>
+	<script src="assets/js/computer.js"></script>
+	<script src="assets/js/playing.js"></script>
+	<script src="assets/js/lose.js"></script>
+	<script src="assets/js/give-up.js"></script>
+	<script src="assets/js/win.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/reset.js"></script>
+
+</body>
+</html>
